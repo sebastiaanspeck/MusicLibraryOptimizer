@@ -10,33 +10,33 @@ Give the filepath you want to look for non-MP3 files\
 exclusions = ["nonMP3", "System Volume Information", "VirtualDJ"]
 
 
-def moveFile(filename, dirpath):
+def move_file(filename, dirpath):
     if not os.path.exists(dirpath+r'\_nonMP3'):
         os.makedirs(dirpath+r'\_nonMP3')
-    currentPath = os.path.join(dirpath, filename)
-    newPath = os.path.join(dirpath+r'\_nonMP3', filename)
+    current_path = os.path.join(dirpath, filename)
+    new_path = os.path.join(dirpath+r'\_nonMP3', filename)
     try:
-        os.rename(currentPath, newPath)
+        os.rename(current_path, new_path)
     except FileExistsError:
         print("File already in folder")
 
 
-def deleteFile(filename, dirpath):
-    deletePath = r"C:\Users\\" + os.getlogin() + "\Desktop"
-    currentPath = os.path.join(dirpath, filename)
-    newPath = os.path.join(deletePath, filename)
+def delete_file(filename, dirpath):
+    delete_path = r"C:\Users\\" + os.getlogin() + "\Desktop"
+    current_path = os.path.join(dirpath, filename)
+    new_path = os.path.join(delete_path, filename)
     try:
-        shutil.move(currentPath, newPath)
+        shutil.move(current_path, new_path)
     except FileExistsError:
         print("File already in folder")
     try:
-        os.unlink(os.path.join(deletePath, filename))
-    except:
+        os.unlink(os.path.join(delete_path, filename))
+    except OSError:
         print("Failed to delete the file")
     print("File deleted")
 
 
-def findFiles(path):
+def find_files():
     print("Indexing files ", path, "...", sep='')
     for (dirpath, dirnames, filenames) in os.walk(path):
         if not any(exclusion in dirpath for exclusion in exclusions):
@@ -49,32 +49,32 @@ def findFiles(path):
 \nPress S to skip the file\
 \nChoice: "))
                     if choice.upper() == "M":
-                        moveFile(filename, dirpath)
+                        move_file(filename, dirpath)
                     elif choice.upper() == "D":
-                        deleteFile(filename, dirpath)
+                        delete_file(filename, dirpath)
                     elif choice.upper() == "S":
                         exclusions.extend([filename])
                         print("File skipped")
 
 
-def getNonMP3Folders(path):
-    nonMP3Folders = []
+def get_non_mp3_folders():
+    non_mp3_folders = []
     for dirpath, dirnames, filenames in os.walk(path):
         if "_nonMP3" in dirpath:
             print(dirpath)
-            nonMP3Folders.extend([dirpath])
-    return nonMP3Folders
+            non_mp3_folders.extend([dirpath])
+    return non_mp3_folders
 
 
-def output(nonMP3Folders):
+def output():
     print("Folders with non-MP3 files:\n")
-    if nonMP3Folders == []:
+    if not non_mp3_folders:
         print("No folders with non-MP3 files")
     else:
-        for dirpath in nonMP3Folders:
+        for dirpath in non_mp3_folders:
             print(dirpath)
 
 
-findFiles(path)
-nonMP3Folders = getNonMP3Folders(path)
-output(nonMP3Folders)
+find_files()
+non_mp3_folders = get_non_mp3_folders()
+output()
