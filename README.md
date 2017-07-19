@@ -34,5 +34,5 @@ PRs accepted.
 This project is still in development. I'm not responsible for potential data-loss. Executing the scripts is at own risks.
 
 ## Special thanks to
-- ['EvanPurk'](https://gist.github.com/EvanPurkhiser/10729815) for providing a naming convention for the MP3-files
-- ['mutagen'](https://mutagen.readthedocs.io/en/latest/) for the ID3-library to create, read, update and delete the ID3-tags in the MP3-files
+- [EvanPurk](https://gist.github.com/EvanPurkhiser/10729815) for providing a naming convention for the MP3-files
+- [mutagen](https://mutagen.readthedocs.io/en/latest/) for the ID3-library to create, read, update and delete the ID3-tags in the MP3-files
