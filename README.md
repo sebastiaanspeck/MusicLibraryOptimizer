@@ -1,8 +1,8 @@
-# Title
+# MusicLibraryOptimalizer
 
 A couple of Python scripts to clean, update and optimalize your music library.
 
-## Install
+## Setup
 
 Some Python-scripts to clean and optimize your music library.
 
