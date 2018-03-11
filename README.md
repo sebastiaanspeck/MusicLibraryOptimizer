@@ -1,4 +1,4 @@
-# MusicLibraryOptimalizer
+# MusicLibraryOptimizer
 
 A couple of Python scripts to clean, update and optimalize your music library.
 
@@ -15,7 +15,7 @@ $ pip install mutagen
 
 Run the following command in command line to install tabulate:
 ```sh
-$ pip install mutagen
+$ pip install tabulate
 ```
 
 ## Usage
